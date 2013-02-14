@@ -53,7 +53,7 @@ class Projector
     command("AVMT 30")
     puts "* Audio/video mute off sent"
   end
-   
+
   def power_status
     case command("POWR ?")
       when "0"
@@ -66,6 +66,12 @@ class Projector
         return "Warming Up"
       end
   end 
+  def mute_status
+    return command("AVMT ?")
+  end
+  def input_list
+     return command("INST ?").split.sort
+  end
   def lamp_hours
     return command("LAMP ?").scan(/(\d+ \d)/).map{|i| i[0].split[0].to_i}
   end
@@ -78,12 +84,11 @@ class Projector
   def product_name
     return command("INF2 ?")
   end
-  def input_list
-    return command("INST ?").split.sort
+  def pjlink_class
+    return command("CLSS ?")
   end
-  def mute_status
-    return command("AVMT ?")
+  def other_info
+    return command("INFO ?")
   end
-  
   private :command
 end
