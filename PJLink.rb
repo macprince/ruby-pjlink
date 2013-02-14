@@ -84,6 +84,12 @@ class Projector
   def mute_status
     return command("AVMT ?")
   end
+  def pjlink_class
+    return command("CLSS ?")
+  end
+  def other_info
+    return command("INFO ?")
+  end
   
   private :command
 end
