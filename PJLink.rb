@@ -24,8 +24,8 @@ class Projector
      puts "* Power Off sent"
   end
   def input(input)
-    if self.input_list.include?(input)
-      command("INPT #{input}")
+    if self.input_list.include?(input.to_s)
+      command("INPT #{input.to_s}")
     end
     puts "* Switch to input #{input} sent"
   end
