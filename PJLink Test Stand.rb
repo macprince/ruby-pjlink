@@ -15,7 +15,7 @@ puts "Lamp hours: #{pj.lamp_hours}"
 
 # pj.power_off
 
-# pj.inputs_available.each{|inp|
-#   pj.input(inp)
-#   sleep 10
-# }
+pj.input_list.each{|inp|
+  pj.input(inp)
+  sleep 10
+}
